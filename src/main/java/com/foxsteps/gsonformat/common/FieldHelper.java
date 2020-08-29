@@ -103,7 +103,10 @@ public class FieldHelper {
                 } else {
                     key = fieldApiInfo.getFieldName();
                 }
-                apiFieldMap.put(key, fieldApiInfo);
+
+                if (!apiFieldMap.containsKey(key)) {
+                    apiFieldMap.put(key, fieldApiInfo);
+                }
             }
         }
 
