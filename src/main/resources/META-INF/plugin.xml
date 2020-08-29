@@ -1,0 +1,35 @@
+<idea-plugin>
+    <name>GsonFormatPlus</name>
+    <version>1.5.3</version>
+    <description><![CDATA[
+<html>quickly to convert a JSON string to an InnerClassEntity class ..<br>
+    <a href="https://github.com/mars-men/GsonFormatPlus"> openSource</a>
+</html>
+      ]]>
+    </description>
+    <vendor email="ol894498560@outlook.com">mars-men</vendor>
+    <idea-version since-build="107.121"/>
+    <change-notes><![CDATA[
+<p>
+    1.5.x
+    <ul>
+      <li>fix several bug </li>
+      <li>fix unlock setting window size </li>
+    </ul>
+    1.4.x
+    <ul>
+      <li>New: Support for autovalue</li>
+      <li>New: Support for lombok</li>
+      <li>New: Support for split generate class</li>
+    </ul>
+</p>
+]]></change-notes>
+    <actions>
+        <action id="GsonFormatPlus" class="com.foxsteps.gsonformat.MainAction" text="GsonFormatPlus">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt s"/>
+        </action>
+    </actions>
+    <extensions defaultExtensionNs="com.intellij"/>
+    <depends>com.intellij.modules.java</depends>
+</idea-plugin>
