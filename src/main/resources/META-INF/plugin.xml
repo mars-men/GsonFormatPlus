@@ -10,19 +10,34 @@
     <vendor email="ol894498560@outlook.com">mars-men</vendor>
     <idea-version since-build="107.121"/>
     <change-notes><![CDATA[
-<p>
-    1.5.x
+    <p>1.5.4</p>
+    <ul>
+      <li>fix several bug</li>
+      <li>support json5</li>
+      <li>support comment</li>
+    </ul>
+    <br/>
+
+    <p>1.5.2</p>
+    <ul>
+      <li>set jackson as default annotation</li>
+      <li>support lombok</li>
+    </ul>
+    <br/>
+
+    <p>1.5.0</p>
     <ul>
       <li>fix several bug </li>
       <li>fix unlock setting window size </li>
     </ul>
-    1.4.x
+    <br/>
+
+    <p>1.4.x</p>
     <ul>
       <li>New: Support for autovalue</li>
       <li>New: Support for lombok</li>
       <li>New: Support for split generate class</li>
     </ul>
-</p>
 ]]></change-notes>
     <actions>
         <action id="GsonFormatPlus" class="com.foxsteps.gsonformat.MainAction" text="GsonFormatPlus">
