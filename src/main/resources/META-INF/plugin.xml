@@ -1,6 +1,6 @@
 <idea-plugin>
     <name>GsonFormatPlus</name>
-    <version>1.5.3</version>
+    <version>1.5.4</version>
     <description><![CDATA[
 <html>quickly to convert a JSON string to an InnerClassEntity class ..<br>
     <a href="https://github.com/mars-men/GsonFormatPlus"> openSource</a>
