@@ -1,8 +1,10 @@
 GsonFormatPlus
 
 这是一个根据JSONObject格式的字符串,自动生成实体类参数.**本插件只适用 Intellij IDEA 工具**，
-基于 [GsonFormat](https://github.com/zzz40500/GsonFormat) 二次定制化开发的idea json生成 Bean插件，更加灵活方便。
-欢迎提issue和PR
+基于 [GsonFormat](https://github.com/zzz40500/GsonFormat) 二次定制化开发的idea json生成 Bean插件，
+which is more flexible and convenient.
+
+[English Readme](README_EN.md)
 
 #### 1.安装方法
 - 运行编译生成 GsonFormatPlus.zip 或者 使用目录下已编译的包 release/GsonFormatPlus.zip
