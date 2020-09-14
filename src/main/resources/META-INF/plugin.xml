@@ -61,12 +61,13 @@ and more flexible and convenient. Welcome to issue and PR.</p>
 <ul>
 <li>remote json dialog ‘VK_ENTER’ listener</li>
 <li>update readme</li>
+</ul>
 
 <p>1.5.5 by mars-men</p>
 <ul>
 <li>upload to jetbrain plugin center</li>
-
 </ul>
+
 <p>1.5.2 by wangzejun</p>
 <ul>
 <li>support field comment</li>
