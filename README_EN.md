@@ -9,7 +9,7 @@ and more flexible and convenient. Welcome to issue and PR.
 - Using IDE built-in plugin system on Windows:
   - <kbd>File</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "GsonFormatPlus"</kbd> > <kbd>Install Plugin</kbd>
 - Using IDE built-in plugin system on MacOs:
-  - <kbd>Preferences</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "GsonFormat"</kbd> > <kbd>Install Plugin</kbd>
+  - <kbd>Preferences</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "GsonFormatPlus"</kbd> > <kbd>Install Plugin</kbd>
 - Manually:
   - Download the [latest release](https://github.com/mars-men/GsonFormatPlus/releases) and install it manually using <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install plugin from disk...</kbd>
   - From official jetbrains store from [download](https://plugins.jetbrains.com/plugin/14949-gsonformatplus/)
@@ -27,6 +27,7 @@ Restart IDE.
 Default **Option + s**(Mac), **Alt + s** (win)
 
 You can change the hotkey via: 
+
 ![修改快捷键.png](https://raw.githubusercontent.com/sun-men/Figurebed/master/2020/03/12-11-13-43-gsonformat-keymap.png)
 
 ### 3.Use Demo

@@ -52,7 +52,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
         this.project = project;
         //设置内容面板
         setContentPane(contentPane2);
-        setTitle("GsonFormat");
+        setTitle("GsonFormatPlus");
         getRootPane().setDefaultButton(okButton);
         this.setAlwaysOnTop(true);
         //初始化面板
@@ -147,15 +147,15 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
 
             }
         });
-        editTP.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-                super.keyReleased(keyEvent);
-                if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER) {
-                    onOK();
-                }
-            }
-        });
+//        editTP.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyReleased(KeyEvent keyEvent) {
+//                super.keyReleased(keyEvent);
+//                if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER) {
+//                    onOK();
+//                }
+//            }
+//        });
         generateClassP.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent keyEvent) {
