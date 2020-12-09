@@ -27,9 +27,11 @@ which is more flexible and convenient.
 #### 3.使用截图
 
 生成DTO
+
 ![gsonformatgeneratorgif](https://raw.githubusercontent.com/sun-men/Figurebed/master/2020/03/12-11-18-54-gsonformat-generator.gif)
 
 生成注释
+
 ![screen](https://user-images.githubusercontent.com/1943377/101614565-1471f100-3a48-11eb-891b-e7da00766423.gif)
 
 #### 4.设置说明
