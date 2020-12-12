@@ -78,7 +78,7 @@ public class JsonUtils {
                 buffer.append(s).append("\n");
             }
         }
-        System.out.println("yuan:"+buffer.toString());
+        //System.out.println("yuan:"+buffer.toString());
         String[] formatArr = buffer.toString().split("\n");
         int index = 0;
         for (String s : formatArr) {
@@ -121,7 +121,7 @@ public class JsonUtils {
         formatJson=formatJson.replaceAll("\"\\]", "\"\n]");
         formatJson=formatJson.replaceAll("\\[\\{", "[\n{");
         formatJson=formatJson.replaceAll("\\}\\]", "}\n]");
-        System.out.println("format:"+formatJson.toString());
+        //System.out.println("format:"+formatJson.toString());
         String[] goodFieldArr = formatJson.split("\n");
         for (Map.Entry<Integer, String> entry : resultMap.entrySet()) {
             int rowIndex = entry.getKey().intValue();

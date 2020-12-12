@@ -224,7 +224,7 @@ public class FieldHelper {
     private static void addFirstField(List<FieldApiInfo> firstFieldList, String parentName, String[] fieldArr) {
         String fieldName = fieldArr[fieldIndexMap.get(FIELD_NAME)];
         String fieldComment = fieldArr[fieldIndexMap.get(FIELD_NAME_COMMENT)];
-        System.out.println(fieldName);
+        //System.out.println(fieldName);
         String fieldDesc = "";
         String required = "";
         String fieldType = "";
