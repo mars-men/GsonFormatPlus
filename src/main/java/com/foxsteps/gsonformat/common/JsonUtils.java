@@ -1,5 +1,6 @@
 package com.foxsteps.gsonformat.common;
 
+import com.foxsteps.gsonformat.entity.FieldApiInfo;
 import com.foxsteps.gsonformat.enums.FieldApiTypeEnum;
 import com.foxsteps.gsonformat.tools.json.JSONArray;
 import com.foxsteps.gsonformat.tools.json.JSONException;
@@ -27,10 +28,23 @@ public class JsonUtils {
         if (!StringUtils.isNotBlank(jsonStr)) {
             return "";
         }
-        String json = jsonStr.replaceAll("//.*", "");
+        String json = jsonStr.replaceAll(" ", "");
+        String[] jsonArr = json.split("\n");
+        if(jsonArr.length>1){
+            StringBuffer buffer=new StringBuffer();
+            for (String jsonLine : jsonArr) {
+                if(jsonLine.contains("//")){
+                    buffer.append(jsonLine.substring(0, jsonLine.lastIndexOf("//"))).append("\n");
+                }else{
+                    buffer.append(jsonLine).append("\n");
+                }
+            }
+            json=buffer.toString();
+        }
+
+        //json = json.replaceAll("//.*", "");
         json = json.replaceAll("\n", "");
         json = json.replaceAll("\t", "");
-        json = json.replaceAll(" ", "");
         json = json.replaceAll(",\\}", "}");
         json = json.replaceAll(",\\]", "]");
         return json;
@@ -59,15 +73,15 @@ public class JsonUtils {
                 s = s.replaceAll(",\"", ",\n\"");
                 s = s.replaceAll("\"\\}", "\"\n}");
                 s = s.replaceAll("\\{\"", "{\n\"");
+                s=s.replaceAll("\\[\\{", "[\n{");
+                s=s.replaceAll("\\}\\]", "}\n]");
                 buffer.append(s).append("\n");
             }
         }
+        System.out.println("yuan:"+buffer.toString());
         String[] formatArr = buffer.toString().split("\n");
         int index = 0;
         for (String s : formatArr) {
-            if (s.startsWith("{") && (index == 1 || index == 0)) {
-                continue;
-            }
             StringBuffer fieldBuf = new StringBuffer();
             if (s.contains(":")) {
                 String[] fieldArr = s.split("//");
@@ -81,7 +95,7 @@ public class JsonUtils {
                 String fieldType = "string";
                 String fieldComment = "";
                 if (s.contains("//")) {
-                    fieldComment = fieldArr[1];
+                    fieldComment = fieldArr[fieldArr.length-1];
                 }
                 if (s.contains("{")) {
                     // "info:{"
@@ -96,13 +110,18 @@ public class JsonUtils {
                 fieldBuf.append("\t");
                 fieldBuf.append(fieldType);
             }
-
             if (StringUtils.isNotBlank(fieldBuf.toString())) {
                 resultMap.put(index, fieldBuf.toString());
             }
             index++;
+
         }
         StringBuffer resultBuf = new StringBuffer();
+        formatJson=formatJson.replaceAll("\\[\"", "[\n\"");
+        formatJson=formatJson.replaceAll("\"\\]", "\"\n]");
+        formatJson=formatJson.replaceAll("\\[\\{", "[\n{");
+        formatJson=formatJson.replaceAll("\\}\\]", "}\n]");
+        System.out.println("format:"+formatJson.toString());
         String[] goodFieldArr = formatJson.split("\n");
         for (Map.Entry<Integer, String> entry : resultMap.entrySet()) {
             int rowIndex = entry.getKey().intValue();

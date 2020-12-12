@@ -462,6 +462,7 @@ public class ConvertBridge {
         generateClassEntity.setClassName("");
         generateClassEntity.setPsiClass(targetClass);
         Map<String, FieldApiInfo> fieldApiInfoMap = FieldHelper.getFieldApiInfo(jsonComment, Config.getInstant().getSuffixStr());
+
         List<FieldEntity> fields = createFields(json, fieldApiInfoMap, fieldList, generateClassEntity);
         generateClassEntity.addAllFields(fields);
         FieldsDialog fieldsDialog = new FieldsDialog(operator, generateClassEntity, factory,
@@ -571,7 +572,11 @@ public class ConvertBridge {
             String key = listEntityList.get(i);
             Object type = json.get(key);
             FieldEntity fieldEntity = createField(parentClass, key, type, fieldApiInfoMap);
-            String fieldComment = FieldHelper.getFieldComment(fieldApiInfoMap, key, null);
+            String className=null;
+            if (StringUtils.isNotBlank(parentClass.getQualifiedName())) {
+                className=parentClass.getClassName();
+            }
+            String fieldComment = FieldHelper.getFieldComment(fieldApiInfoMap, key,className);
             fieldEntity.setFieldComment(fieldComment);
             fieldEntityList.add(fieldEntity);
         }

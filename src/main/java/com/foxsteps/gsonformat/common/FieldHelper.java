@@ -89,24 +89,36 @@ public class FieldHelper {
                         Map<String, List<String>> firthChildMap = new HashMap<>(8);
                         List<String> thirdList = thirdEntry.getValue();
                         thirdList = sortChildList(thirdList);
-                        String[] thirdArr = childList.toArray(new String[thirdList.size()]);
+                        String[] thirdArr = thirdList.toArray(new String[thirdList.size()]);
                         dealWithField(thirdArr, firthChildMap, firstFieldList, thirdEntry.getKey(), suffixStr);
+                        if (firthChildMap.size() > 0) {
+                            for (Map.Entry<String, List<String>> fourthEntry : firthChildMap.entrySet()) {
+                                Map<String, List<String>> fiveChildMap = new HashMap<>(8);
+                                List<String> fourthList = fourthEntry.getValue();
+                                fourthList = sortChildList(fourthList);
+                                String[] fourthArr = fourthList.toArray(new String[fourthList.size()]);
+                                dealWithField(fourthArr, fiveChildMap, firstFieldList, fourthEntry.getKey(), suffixStr);
+                            }
+                        }
                     }
                 }
             }
         }
         for (FieldApiInfo fieldApiInfo : firstFieldList) {
-            if (!apiFieldMap.containsKey(fieldApiInfo.getFieldName())) {
-                String key = null;
-                if (StringUtils.isNotBlank(fieldApiInfo.getParentName())) {
-                    key = fieldApiInfo.getParentName() + "-" + fieldApiInfo.getFieldName();
-                } else {
-                    key = fieldApiInfo.getFieldName();
-                }
+            String key = null;
+            if (StringUtils.isNotBlank(fieldApiInfo.getParentName())) {
+                key = fieldApiInfo.getParentName() + "-" + fieldApiInfo.getFieldName();
+            } else {
+                key = fieldApiInfo.getFieldName();
+            }
 
-                if (!apiFieldMap.containsKey(key)) {
-                    apiFieldMap.put(key, fieldApiInfo);
-                }
+            FieldApiInfo oldInfo = apiFieldMap.get(key);
+            if (oldInfo!=null && !StringUtils.isNotBlank(oldInfo.getFieldComment())) {
+                apiFieldMap.put(key, fieldApiInfo);
+            }
+
+            if (!apiFieldMap.containsKey(key)) {
+                apiFieldMap.put(key, fieldApiInfo);
             }
         }
 
