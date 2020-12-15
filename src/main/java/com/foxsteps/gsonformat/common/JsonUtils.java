@@ -94,9 +94,12 @@ public class JsonUtils {
                 fieldBuf.append("\t");
                 String fieldType = "string";
                 String fieldComment = "";
-                if (s.contains("//")) {
+                if (s.contains("//") && fieldArr.length>1) {
                     fieldComment = fieldArr[fieldArr.length-1];
+                }else{
+                    fieldComment="";
                 }
+
                 if (s.contains("{")) {
                     // "info:{"
                     fieldType = FieldApiTypeEnum.OBJECT.getValue();
