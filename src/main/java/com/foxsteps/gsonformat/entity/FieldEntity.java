@@ -33,6 +33,11 @@ public class FieldEntity implements Selector, CellProvider {
     protected String value;
 
     /**
+     * 字段序号
+     */
+    protected Integer sortNo;
+
+    /**
      * 依赖的实体类
      */
     protected ClassEntity targetClass;
@@ -199,5 +204,13 @@ public class FieldEntity implements Selector, CellProvider {
 
     public void setFieldComment(String fieldComment) {
         this.fieldComment = fieldComment;
+    }
+
+    public Integer getSortNo() {
+        return sortNo;
+    }
+
+    public void setSortNo(Integer sortNo) {
+        this.sortNo = sortNo;
     }
 }
