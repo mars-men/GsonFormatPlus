@@ -83,6 +83,7 @@ public class JsonUtils {
         int index = 0;
         for (String s : formatArr) {
             StringBuffer fieldBuf = new StringBuffer();
+            s=s.replaceAll("http://","");
             if (s.contains(":")) {
                 String[] fieldArr = s.split("//");
 
