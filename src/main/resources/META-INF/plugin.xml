@@ -1,13 +1,13 @@
 <idea-plugin>
     <name>GsonFormatPlus</name>
-    <version>1.5.6</version>
+    <version>1.5.7</version>
     <description><![CDATA[
 <!doctype html>
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 <title>README_EN</title></head>
-<body><p>GsonFormatPlus</p>
+<body><p>GsonFormatPlus <a href='https://github.com/mars-men/GsonFormatPlus'>github</a> </p>
 <p>This is a plugin you can generate Json model from Json String.
 <strong>This Plugin is only for IntelliJ IDEA</strong>.
 which is base on <a href='https://github.com/zzz40500/GsonFormat'>GsonFormat</a>
@@ -56,6 +56,11 @@ and more flexible and convenient. Welcome to issue and PR.</p>
 </table></figure>
 <p>&nbsp;</p>
 <h2>Version Info</h2>
+
+<p>1.5.7 by wangzhejun</p>
+<ul>
+<li>fix some json5 format bug</li>
+</ul>
 
 <p>1.5.6 by mars-men</p>
 <ul>
