@@ -31,6 +31,17 @@ public class StringUtils {
         return stringBuilder.toString();
     }
 
+    public static boolean isAcronym(String word) {
+        for(int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (Character.isLowerCase(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public static String captureName(String text) {
 
         if (text.length() > 0) {

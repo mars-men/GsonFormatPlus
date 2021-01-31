@@ -596,9 +596,15 @@ public class ConvertBridge {
     private FieldEntity createField(ClassEntity parentClass, String key, Object type, Map<String, FieldApiInfo> fieldApiInfoMap) {
         //过滤 不符合规则的key
         String fieldName = CheckUtil.getInstant().handleArg(key);
-        //使用序列化名:转为驼峰
-        if (Config.getInstant().isUseSerializedName()) {
-            fieldName = StringUtils.captureStringLeaveUnderscore(convertSerializedName(fieldName));
+        if (Config.getInstant().isUseSerializedName() && fieldName.contains("_")) {
+            if (fieldName.endsWith("_")) {
+                fieldName = fieldName.substring(0, fieldName.lastIndexOf("_"));
+            }
+            fieldName = StringUtils.captureStringLeaveUnderscore(fieldName.toLowerCase());
+        } else {
+            if (Config.getInstant().isUseSerializedName() && StringUtils.isAcronym(fieldName)) {
+                fieldName = fieldName.toLowerCase();
+            }
         }
         fieldName = handleDeclareFieldName(fieldName, "");
 
