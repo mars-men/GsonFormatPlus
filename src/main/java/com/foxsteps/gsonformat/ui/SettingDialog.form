@@ -374,28 +374,6 @@
                   <text value="General"/>
                 </properties>
               </component>
-              <component id="6cc2" class="javax.swing.JCheckBox" binding="generateCommentsCB">
-                <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="-1" height="30"/>
-                    <preferred-size width="-1" height="30"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value="generate comments"/>
-                </properties>
-              </component>
-              <component id="61cbe" class="javax.swing.JCheckBox" binding="splitGenerateCB">
-                <constraints>
-                  <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="-1" height="30"/>
-                    <preferred-size width="-1" height="30"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <text value="split generate"/>
-                </properties>
-              </component>
               <component id="9eff9" class="javax.swing.JCheckBox" binding="virgoModelCB">
                 <constraints>
                   <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -423,6 +401,17 @@
                 <properties>
                   <enabled value="false"/>
                   <text value="edit"/>
+                </properties>
+              </component>
+              <component id="61cbe" class="javax.swing.JCheckBox" binding="splitGenerateCB">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="-1" height="30"/>
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="split generate"/>
                 </properties>
               </component>
             </children>
