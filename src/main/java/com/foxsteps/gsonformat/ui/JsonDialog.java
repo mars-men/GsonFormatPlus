@@ -140,7 +140,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
                         commentAR.setText(JsonUtils.getJsonComment(json, formatJson));
                     } catch (Exception exception) {
                         exception.printStackTrace();
-                        NotificationCenter.error("json格式不正确");
+                        NotificationCenter.sendNotificationForProject("json格式不正确，格式需要标准的json或者json5",NotificationType.ERROR,project);
                         return;
                     }
                 }
@@ -209,7 +209,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
                     return;
                 }
                 SystemUtils.copyToClipboard(json);
-                NotificationCenter.sendNotification(" Copy json success !", NotificationType.INFORMATION);
+                NotificationCenter.sendNotificationForProject(" Copy json success !",NotificationType.INFORMATION,project);
             }
         });
 
@@ -221,7 +221,7 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
                     return;
                 }
                 SystemUtils.copyToClipboard(jsonComment);
-                NotificationCenter.sendNotification(" Copy jsonComment success !", NotificationType.INFORMATION);
+                NotificationCenter.sendNotificationForProject("Copy jsonComment success",NotificationType.INFORMATION,project);
             }
         });
 

@@ -21,6 +21,7 @@ import java.io.Writer;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 
 /**
@@ -462,6 +463,7 @@ public class ConvertBridge {
         generateClassEntity.setClassName("");
         generateClassEntity.setPsiClass(targetClass);
         Map<String, FieldApiInfo> fieldApiInfoMap = FieldHelper.getFieldApiInfo(jsonComment, Config.getInstant().getSuffixStr());
+
         List<FieldEntity> fields = createFields(json, fieldApiInfoMap, fieldList, generateClassEntity);
         generateClassEntity.addAllFields(fields);
         FieldsDialog fieldsDialog = new FieldsDialog(operator, generateClassEntity, factory,
@@ -546,7 +548,7 @@ public class ConvertBridge {
      */
     private List<FieldEntity> createFields(JSONObject json, Map<String, FieldApiInfo> fieldApiInfoMap, List<String> fieldList, ClassEntity parentClass) {
         List<FieldEntity> fieldEntityList = new ArrayList<FieldEntity>();
-        List<String> listEntityList = new ArrayList<String>();
+        List<FieldArrayEntity> listEntityList = new ArrayList<FieldArrayEntity>();
         //是否添加注释
         boolean writeExtra = Config.getInstant().isGenerateComments();
 
@@ -554,11 +556,15 @@ public class ConvertBridge {
             String key = fieldList.get(i);
             Object value = json.get(key);
             if (value instanceof JSONArray) {
-                listEntityList.add(key);
+                FieldArrayEntity arrayEntity=new FieldArrayEntity();
+                arrayEntity.setSortNo(i);
+                arrayEntity.setKey(key);
+                listEntityList.add(arrayEntity);
                 continue;
             }
             //创建字段实体
             FieldEntity fieldEntity = createField(parentClass, key, value, fieldApiInfoMap);
+            fieldEntity.setSortNo(i);
             fieldEntityList.add(fieldEntity);
             if (writeExtra) {
                 writeExtra = false;
@@ -568,15 +574,22 @@ public class ConvertBridge {
 
         //集合类型
         for (int i = 0; i < listEntityList.size(); i++) {
-            String key = listEntityList.get(i);
-            Object type = json.get(key);
-            FieldEntity fieldEntity = createField(parentClass, key, type, fieldApiInfoMap);
-            String fieldComment = FieldHelper.getFieldComment(fieldApiInfoMap, key, null);
+            FieldArrayEntity entity = listEntityList.get(i);
+            Object type = json.get(entity.getKey());
+            FieldEntity fieldEntity = createField(parentClass, entity.getKey(), type, fieldApiInfoMap);
+            String className=null;
+            if (StringUtils.isNotBlank(parentClass.getQualifiedName())) {
+                className=parentClass.getClassName();
+            }
+            String fieldComment = FieldHelper.getFieldComment(fieldApiInfoMap, entity.getKey(),className);
             fieldEntity.setFieldComment(fieldComment);
+            fieldEntity.setSortNo(entity.getSortNo());
             fieldEntityList.add(fieldEntity);
         }
-
-        return fieldEntityList;
+        List<FieldEntity> resultList = fieldEntityList.stream()
+                .sorted(Comparator.comparing(FieldEntity::getSortNo))
+                .collect(Collectors.toList());
+        return resultList;
     }
 
 
