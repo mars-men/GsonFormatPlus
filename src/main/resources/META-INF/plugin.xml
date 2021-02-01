@@ -7,11 +7,11 @@
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 <title>README_EN</title></head>
-<body><p>GsonFormatPlus <a href='https://github.com/mars-men/GsonFormatPlus'>github</a> </p>
-<p>This is a plugin you can generate Json model from Json String.
-<strong>This Plugin is only for IntelliJ IDEA</strong>.
-which is base on <a href='https://github.com/zzz40500/GsonFormat'>GsonFormat</a>
-and more flexible and convenient. Welcome to issue and PR.</p>
+<body>
+<p><a href='https://github.com/mars-men/GsonFormatPlus'>Github</a> | <a href='https://github.com/mars-men/GsonFormatPlus'>Manual</a> | <a href='https://github.com/mars-men/GsonFormatPlus/issues'>Issues</a></p>
+<p>GsonFormatPlus This is a plugin you can generate Json model from Json String.
+<strong>This Plugin is only for IntelliJ IDEA And Android Studio</strong>.
+which is base on GsonFormat and more flexible and convenient. Welcome to issue and PR.</p>
 <h2>Install</h2>
 <ul>
 <li><p>Using IDE built-in plugin system on Windows:</p>
@@ -56,6 +56,13 @@ and more flexible and convenient. Welcome to issue and PR.</p>
 </table></figure>
 <p>&nbsp;</p>
 <h2>Version Info</h2>
+
+<p>1.5.8 by wangzhejun</p>
+<ul>
+<li>fix json camel bug</li>
+<li>fix bool property default `is` function</li>
+<li>fix comment conflict</li>
+</ul>
 
 <p>1.5.7 by wangzhejun</p>
 <ul>
