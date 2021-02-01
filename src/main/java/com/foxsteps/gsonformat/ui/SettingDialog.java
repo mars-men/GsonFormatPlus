@@ -30,7 +30,7 @@ public class SettingDialog extends JFrame {
     private JCheckBox filedPrefixCB;
     private JTextField annotationTF;
     private JCheckBox virgoModelCB;
-    private JCheckBox generateCommentsCB;
+    //private JCheckBox generateCommentsCB;
     private JCheckBox useWrapperClassCB;
     private JCheckBox useCommentCB;
     private JCheckBox splitGenerateCB;
@@ -100,7 +100,7 @@ public class SettingDialog extends JFrame {
         //处女模式CheckBox
         virgoModelCB.setSelected(Config.getInstant().isVirgoMode());
         //生成注释
-        generateCommentsCB.setSelected(Config.getInstant().isGenerateComments());
+        //generateCommentsCB.setSelected(Config.getInstant().isGenerateComments());
         //字段前缀checkbox
         filedPrefixCB.setSelected(Config.getInstant().isUseFieldNamePrefix());
         filedPrefixTF.setEnabled(Config.getInstant().isUseFieldNamePrefix());
@@ -376,7 +376,7 @@ public class SettingDialog extends JFrame {
         Config.getInstant().setReuseEntity(reuseEntityCB.isSelected());
         Config.getInstant().setSuffixStr(suffixEdit.getText());
         Config.getInstant().setVirgoMode(virgoModelCB.isSelected());
-        Config.getInstant().setGenerateComments(generateCommentsCB.isSelected());
+        //Config.getInstant().setGenerateComments(generateCommentsCB.isSelected());
         Config.getInstant().setFiledNamePreFixStr(filedPrefixTF.getText());
         Config.getInstant().setAnnotationStr(annotationTF.getText());
         Config.getInstant().setUseFieldNamePrefix(filedPrefixCB.isSelected());
