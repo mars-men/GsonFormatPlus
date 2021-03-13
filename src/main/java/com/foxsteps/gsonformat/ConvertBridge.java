@@ -550,8 +550,9 @@ public class ConvertBridge {
         List<FieldEntity> fieldEntityList = new ArrayList<FieldEntity>();
         List<FieldArrayEntity> listEntityList = new ArrayList<FieldArrayEntity>();
         //是否添加注释
-        boolean writeExtra = Config.getInstant().isGenerateComments();
-
+        //boolean writeExtra = Config.getInstant().isGenerateComments();
+        //去掉构造函数注释
+        boolean writeExtra=false;
         for (int i = 0; i < fieldList.size(); i++) {
             String key = fieldList.get(i);
             Object value = json.get(key);
@@ -602,9 +603,19 @@ public class ConvertBridge {
             }
             fieldName = StringUtils.captureStringLeaveUnderscore(fieldName.toLowerCase());
         } else {
+            //fieldName是全部大写
             if (Config.getInstant().isUseSerializedName() && StringUtils.isAcronym(fieldName)) {
                 fieldName = fieldName.toLowerCase();
             }
+            //首字母是大写，存在其他字母是小写
+            if (StringUtils.isFirsrtUpper(fieldName)) {
+                if (fieldName.length() == 1) {
+                    fieldName = fieldName.toLowerCase();
+                }else{
+                    fieldName = fieldName.substring(0,1).toLowerCase()+ fieldName.substring(1);
+                }
+            }
+
         }
         fieldName = handleDeclareFieldName(fieldName, "");
 

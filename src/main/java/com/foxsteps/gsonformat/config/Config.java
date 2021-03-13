@@ -122,7 +122,7 @@ public class Config {
             config.setErrorCount(PropertiesComponent.getInstance().getOrInitInt("errorCount", 0));
             config.setVirgoMode(PropertiesComponent.getInstance().getBoolean("virgoMode", true));
             config.setUseFieldNamePrefix(PropertiesComponent.getInstance().getBoolean("useFieldNamePrefix", false));
-            config.setGenerateComments(PropertiesComponent.getInstance().getBoolean("generateComments", true));
+            config.setGenerateComments(PropertiesComponent.getInstance().getBoolean("generateComments", false));
             config.setSplitGenerate(PropertiesComponent.getInstance().getBoolean("splitGenerate", false));
             config.setUseWrapperClass(PropertiesComponent.getInstance().getBoolean("useWrapperClass", true));
             config.setUseComment(PropertiesComponent.getInstance().getBoolean("useComment", false));
