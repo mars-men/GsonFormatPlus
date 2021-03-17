@@ -208,8 +208,34 @@ public class JsonDialog extends JFrame implements ConvertBridge.Operator {
                 if (!StringUtils.isNotBlank(json)) {
                     return;
                 }
-                SystemUtils.copyToClipboard(json);
-                NotificationCenter.sendNotificationForProject(" Copy json success !",NotificationType.INFORMATION,project);
+                String formatJson="";
+                try {
+                    if (json.startsWith("{")) {
+                        JSONObject jsonObject = new JSONObject(json);
+                        formatJson = jsonObject.toString(4);
+                        editTP.setText(formatJson);
+                    } else if (json.startsWith("[")) {
+                        JSONArray jsonArray = new JSONArray(json);
+                        formatJson = jsonArray.toString(4);
+                        editTP.setText(formatJson);
+                    }
+                    SystemUtils.copyToClipboard(formatJson);
+                    NotificationCenter.sendNotificationForProject(" Copy json success !",NotificationType.INFORMATION,project);
+                } catch (JSONException jsonException) {
+                    try {
+                        String goodJson = JsonUtils.removeComment(json);
+                        formatJson = JsonUtils.formatJson(goodJson);
+                        editTP.setText(formatJson);
+                        commentAR.setText(JsonUtils.getJsonComment(json, formatJson));
+                        SystemUtils.copyToClipboard(formatJson);
+                        NotificationCenter.sendNotificationForProject(" Copy json success !",NotificationType.INFORMATION,project);
+                    } catch (Exception exception) {
+                        formatJson="";
+                        exception.printStackTrace();
+                        NotificationCenter.sendNotificationForProject("json格式不正确，格式需要标准的json或者json5",NotificationType.ERROR,project);
+                        return;
+                    }
+                }
             }
         });
 
