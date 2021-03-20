@@ -41,6 +41,14 @@ public class StringUtils {
         return true;
     }
 
+    public static boolean isFirsrtUpper(String word) {
+        char c = word.charAt(0);
+        if(Character.isUpperCase(c)){
+            return true;
+        }
+        return false;
+    }
+
 
     public static String captureName(String text) {
 
