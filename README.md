@@ -7,7 +7,7 @@ which is more flexible and convenient.
 [English Readme](README_EN.md)
 
 #### 1.安装方法
-- 运行编译生成 GsonFormatPlus.zip 或者 使用目录下已编译的包 release/GsonFormatPlus.zip
+- 运行编译生成 GsonFormatPlus.zip 或者 直接在Idea的 Plugins -&gt; Marketplace 搜索安装
 - IntelliJ IDEA File-&gt; Settings.. -&gt; Plugins -&gt; install plugin from disk..导入下载的 GsonFormatPlus.zip
 - 重启 IntelliJ IDEA .
 

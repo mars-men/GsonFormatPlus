@@ -1,6 +1,6 @@
 <idea-plugin>
     <name>GsonFormatPlus</name>
-    <version>1.5.9</version>
+    <version>1.6.0</version>
     <description><![CDATA[
 <!doctype html>
 <html>
@@ -56,6 +56,13 @@ which is base on GsonFormat and more flexible and convenient. Welcome to issue a
 </table></figure>
 <p>&nbsp;</p>
 <h2>Version Info</h2>
+
+<p>1.6.0 by wangzhejun</p>
+<ul>
+<li>support auto format</li>
+<li>fix comment position</li>
+<li>fix camel convert</li>
+</ul>
 
 <p>1.5.8 by wangzhejun</p>
 <ul>
@@ -114,6 +121,13 @@ which is base on GsonFormat and more flexible and convenient. Welcome to issue a
     <vendor email="ol894498560@outlook.com">mars-men</vendor>
     <idea-version since-build="107.121"/>
     <change-notes><![CDATA[
+    <p>1.6.0</p>
+    <ul>
+      <li>support auto format</li>
+      <li>fix comment position</li>
+      <li>fix camel convert</li>
+    </ul>
+
     <p>1.5.6</p>
     <ul>
       <li>fix several bug</li>
