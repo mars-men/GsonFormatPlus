@@ -1,6 +1,6 @@
 <idea-plugin>
     <name>GsonFormatPlus</name>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
     <description><![CDATA[
 <!doctype html>
 <html>
@@ -119,7 +119,7 @@ which is base on GsonFormat and more flexible and convenient. Welcome to issue a
       ]]>
     </description>
     <vendor email="ol894498560@outlook.com">mars-men</vendor>
-    <idea-version since-build="107.121"/>
+    <idea-version since-build="135.121"/>
     <change-notes><![CDATA[
     <p>1.6.0</p>
     <ul>
