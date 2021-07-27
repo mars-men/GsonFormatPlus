@@ -4,6 +4,11 @@ GsonFormatPlus
 基于 GsonFormat 二次定制化开发的idea json生成 Bean插件，
 which is more flexible and convenient.
 
+#### 待实现特性
+- 支持实现接口类，集成父类功能
+- 支持实体类序列化，mock生成对象
+- 更多特性希望大家提交issues反馈
+
 [English Readme](README_EN.md)
 
 #### 1.安装方法
