@@ -5,7 +5,7 @@ GsonFormatPlus
 which is more flexible and convenient.
 
 #### 待实现特性
-- 支持实现接口类，集成父类功能
+- 支持实现特定接口类，继承父类功能
 - 支持自定义属性类型，如java.math.BigDecimal
 - 支持实体类序列化，mock生成对象
 - 更多特性希望大家提交issues反馈
