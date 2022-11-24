@@ -10,6 +10,7 @@ public class Config {
     private static Config config;
 
     private boolean fieldPrivateMode = true;
+    private boolean onlyGetterMode = false;
     private boolean generateComments = false;
     private boolean useSerializedName = false;
     private boolean objectFromData = false;
@@ -75,6 +76,7 @@ public class Config {
 
     public void save() {
 
+        PropertiesComponent.getInstance().setValue("fieldOnlyGetterMode", isOnlyGetterMode() + "");
         PropertiesComponent.getInstance().setValue("fieldPrivateMode", isFieldPrivateMode() + "");
         PropertiesComponent.getInstance().setValue("useSerializedName", isUseSerializedName() + "");
         PropertiesComponent.getInstance().setValue("objectFromData", objectFromData + "");
@@ -104,6 +106,7 @@ public class Config {
 
         if (config == null) {
             config = new Config();
+            config.setOnlyGetterMode(PropertiesComponent.getInstance().getBoolean("fieldOnlyGetterMode", false));
             config.setFieldPrivateMode(PropertiesComponent.getInstance().getBoolean("fieldPrivateMode", true));
             config.setUseSerializedName(PropertiesComponent.getInstance().getBoolean("useSerializedName", true));
             config.setObjectFromData(PropertiesComponent.getInstance().getBoolean("objectFromData", false));
@@ -301,6 +304,13 @@ public class Config {
         this.fieldPrivateMode = fieldPrivateMode;
     }
 
+    public boolean isOnlyGetterMode() {
+        return onlyGetterMode;
+    }
+
+    public void setOnlyGetterMode(boolean onlyGetterMode) {
+        this.onlyGetterMode = onlyGetterMode;
+    }
 
     public void saveObjectFromDataStr(String objectFromDataStr) {
         this.objectFromDataStr = objectFromDataStr;
