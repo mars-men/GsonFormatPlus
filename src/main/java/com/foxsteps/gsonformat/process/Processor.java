@@ -107,7 +107,11 @@ public abstract class Processor {
         }
         if (Config.getInstant().isFieldPrivateMode()) {
             for (FieldEntity field : classEntity.getFields()) {
-                createGetAndSetMethod(factory, cls, field);
+                if (Config.getInstant().isOnlyGetterMode()) {
+                    createGetMethod(factory, cls, field);
+                } else {
+                    createGetAndSetMethod(factory, cls, field);
+                }
             }
         }
     }
@@ -131,7 +135,7 @@ public abstract class Processor {
         });
     }
 
-    protected void createGetAndSetMethod(PsiElementFactory factory, PsiClass cls, FieldEntity field) {
+    protected void createGetMethod(PsiElementFactory factory, PsiClass cls, FieldEntity field) {
         if (field.isGenerate()) {
             String fieldName = field.getGenerateFieldName();
             String typeStr = field.getRealType();
@@ -153,7 +157,13 @@ public abstract class Processor {
                         field.getGenerateFieldName()).concat(" ;} ");
                 cls.add(factory.createMethodFromText(method, cls));
             }
+        }
+    }
 
+    protected void createSetMethod(PsiElementFactory factory, PsiClass cls, FieldEntity field) {
+        if (field.isGenerate()) {
+            String fieldName = field.getGenerateFieldName();
+            String typeStr = field.getRealType();
             String arg = fieldName;
             if (Config.getInstant().isUseFieldNamePrefix()) {
                 String temp = fieldName.replaceAll("^" + Config.getInstant().getFiledNamePreFixStr(), "");
@@ -198,6 +208,11 @@ public abstract class Processor {
                 }
             });
         }
+    }
+
+    protected void createGetAndSetMethod(PsiElementFactory factory, PsiClass cls, FieldEntity field) {
+        createGetMethod(factory, cls, field);
+        createSetMethod(factory, cls, field);
     }
 
     protected void generateClass(PsiElementFactory factory, ClassEntity classEntity, PsiClass parentClass, IProcessor visitor) {

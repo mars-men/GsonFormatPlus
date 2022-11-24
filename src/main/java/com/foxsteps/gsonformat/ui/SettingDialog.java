@@ -37,6 +37,7 @@ public class SettingDialog extends JFrame {
 
     private JRadioButton fieldPublicRadioButton;
     private JRadioButton fieldPrivateRadioButton;
+    private JCheckBox onlyGetterCheckBox;
     private JCheckBox useSerializedNameCB;
     private JCheckBox useLombokCB;
     private JCheckBox useNumberKeyAsMapCB;
@@ -94,9 +95,15 @@ public class SettingDialog extends JFrame {
         //字段私有模型
         if (Config.getInstant().isFieldPrivateMode()) {
             fieldPrivateRadioButton.setSelected(true);
+            onlyGetterCheckBox.setEnabled(true);
         } else {
             fieldPublicRadioButton.setSelected(true);
+            onlyGetterCheckBox.setEnabled(false);
         }
+        onlyGetterCheckBox.setSelected(Config.getInstant().isOnlyGetterMode());
+        fieldPrivateRadioButton.addChangeListener(e -> {
+            onlyGetterCheckBox.setEnabled(fieldPrivateRadioButton.isSelected());
+        });
         //处女模式CheckBox
         virgoModelCB.setSelected(Config.getInstant().isVirgoMode());
         //生成注释
@@ -367,6 +374,7 @@ public class SettingDialog extends JFrame {
 
     private void onOK() {
 
+        Config.getInstant().setOnlyGetterMode(onlyGetterCheckBox.isSelected());
         Config.getInstant().setFieldPrivateMode(fieldPrivateRadioButton.isSelected());
         Config.getInstant().setUseSerializedName(useSerializedNameCB.isSelected());
         Config.getInstant().setArrayFromData(arrayFromDataCB.isSelected());
